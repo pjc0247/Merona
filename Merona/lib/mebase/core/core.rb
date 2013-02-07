@@ -1,5 +1,7 @@
-def MeInitialize
-	puts "Merona engine initialized"
-	
+def polling(&block)
+	block.call
+end
+
+def meInitialize
 	return true
 end
