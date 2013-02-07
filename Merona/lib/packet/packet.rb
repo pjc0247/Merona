@@ -16,4 +16,11 @@ class Packet
 		
 		@data[name] = data
 	end
+
+	def type=(type)
+		@data["type"] = type
+	end
+	def type
+		@data["type"]
+	end
 end
