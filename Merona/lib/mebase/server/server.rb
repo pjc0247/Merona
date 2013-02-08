@@ -7,17 +7,16 @@ class Connection < EM::Connection
 	
 	attr_reader :ip, :port
 	
-	@@clients = Array.new
 	
 	def initialize(*args)
 		@port, @ip = Socket.unpack_sockaddr_in(get_peername)
 		connect
-		@@clients.push self
 		
 		@server = $server[args[0]]
+		@server.clients.push self
 	end
 	def unbind
-		@@clients.delete self
+		@server.clients.delete self
 		disconnect
 	end
 	def receive_object(obj)
@@ -42,9 +41,12 @@ class Server
 	attr_reader :port
 	attr_reader :handler
 	
+	attr_accessor :clients
+	
 	def initialize(name,port,klass=Connection)
 		EventMachine.start_server("127.0.0.1", port, klass, name)
 		
+		@clients = Array.new
 		@handler = Array.new
 		
 		@name = name
