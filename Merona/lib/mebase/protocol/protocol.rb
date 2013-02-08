@@ -1,5 +1,5 @@
 class Protocol
-	BEGIN = 0
+	FIRST = 0
 	
-	END = 99999
+	LAST = 99999
 end
