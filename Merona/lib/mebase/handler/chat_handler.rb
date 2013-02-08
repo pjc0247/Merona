@@ -4,6 +4,7 @@ class ChatHandler < Handler
 			when Protocol::CHAT
 				#pkt.sender = getClientNickname
 				puts "[#{packet.data["sender"]}] : #{packet.data["msg"]}"
+				server.broadcast packet
 		end
 	end
 end
