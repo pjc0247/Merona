@@ -21,6 +21,10 @@ class Connection < EM::Connection
 	end
 	
 	
+	def self.clients
+		@@clients
+	end
+	
 	def connect
 		Log.output("new connection from " + @ip)
 	end
@@ -32,7 +36,6 @@ end
 class Server
 	def initialize(port)
 		EventMachine.start_server("127.0.0.1", port, Connection)
-		
 		@handler = Array.new
 	end
 	def dispose
