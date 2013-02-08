@@ -34,4 +34,13 @@ class Server
 			end
 		end
 	end
+	
+	def exclude(connection)
+		@clients.reject { |c| connection == c }
+	end
+	def broadcast(packet, exclusion = nil)
+		(exclusion ? exclude(exclusion) : @clients).each do |client|
+			client.send packet
+		end
+	end
 end
