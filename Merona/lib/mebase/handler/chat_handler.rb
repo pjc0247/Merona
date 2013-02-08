@@ -1,9 +1,4 @@
-class Handler
-	def initialize
-	end
-	def dispose
-	end
-	
+class ChatHandler < Handler
 	def recv(packet)
 		case packet.id
 			when Protocol.CHAT
