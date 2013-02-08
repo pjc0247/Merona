@@ -1,5 +1,5 @@
 def polling(&block)
-	block.call
+	EventMachine.run block
 end
 
 def meInitialize
