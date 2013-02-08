@@ -19,7 +19,9 @@ class Connection < EM::Connection
 		disconnect
 	end
 	def receive_object(obj)
-		p obj
+		@server.handler each do |handler|
+			handler.recv(obj)
+		end
 	end
 	
 	
