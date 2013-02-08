@@ -1,4 +1,6 @@
-# Merona
+# Merona main
+
+import 'mebase/merona'
 
 begin
 	if meInitialize
