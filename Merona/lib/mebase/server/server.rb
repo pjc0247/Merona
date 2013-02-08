@@ -14,6 +14,12 @@ class Connection < EM::Connection
 	def receive_object(obj)
 		p obj
 	end
+	
+	
+	def ip
+		port, ip = Socket.unpack_sockaddr_in(get_peername)
+		ip
+	end
 end
 
 class Server
