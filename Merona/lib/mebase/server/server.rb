@@ -40,6 +40,7 @@ end
 class Server
 	attr_reader :name
 	attr_reader :port
+	attr_reader :handler
 	
 	def initialize(name,port,klass=Connection)
 		EventMachine.start_server("127.0.0.1", port, klass, name)
