@@ -12,6 +12,7 @@ begin
 	polling do
 		# write code here
 		
-		Server.new("test", 9916)
+		test = Server.new("test", 9916)
+		test.add_handler ChatHandler
 	end
 end

@@ -19,7 +19,7 @@ class Connection < EM::Connection
 		disconnect
 	end
 	def receive_object(obj)
-		@server.handler each do |handler|
+		@server.handler.each do |handler|
 			handler.recv(obj)
 		end
 	end
@@ -48,7 +48,7 @@ class Server
 		EventMachine.start_server("127.0.0.1", port, klass, name)
 		
 		@clients = Array.new
-		@handler = {}
+		@handler = Array.new
 		
 		@name = name
 		@port = port
@@ -60,9 +60,13 @@ class Server
 	end
 	
 	def add_handler(handler)
-		@handler[handler] = handler.new
+		@handler.push handler.new
 	end
 	def delete_handler(handler)
-		@handler.delete handler
+		@handler.each do |value|
+			if value.class == handler
+				@handler.delete value
+			end
+		end
 	end
 end

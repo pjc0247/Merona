@@ -8,7 +8,7 @@ class Handler
 	
 	def recv(packet)
 		#case packet.id
-		#	when Protocol.PacketID
+		#	when Protocol::PacketID
 		#		process code here
 		#end
 	end
