@@ -5,6 +5,8 @@ class Packet
 	
 	def initialize
 		@data = {}
+		
+		@id = -1
 	end
 	def dispose
 	end
