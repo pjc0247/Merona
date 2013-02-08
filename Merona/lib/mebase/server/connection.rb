@@ -16,6 +16,10 @@ class Connection < EM::Connection
 		@server.clients.delete self
 		disconnect
 	end
+	
+	def send(packet)
+		send_object packet
+	end
 	def receive_object(obj)
 		@server.handler.each do |handler|
 			handler.recv(@server, self, obj)
