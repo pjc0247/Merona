@@ -6,7 +6,7 @@ class Handler
 	def dispose
 	end
 	
-	def recv(packet)
+	def recv(server,connection,packet)
 		#case packet.id
 		#	when Protocol::PacketID
 		#		process code here

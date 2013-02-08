@@ -1,5 +1,5 @@
 class ChatHandler < Handler
-	def recv(packet)
+	def recv(server,connection,packet)
 		case packet.id
 			when Protocol::CHAT
 				#pkt.sender = getClientNickname

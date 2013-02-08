@@ -18,7 +18,7 @@ class Connection < EM::Connection
 	end
 	def receive_object(obj)
 		@server.handler.each do |handler|
-			handler.recv(obj)
+			handler.recv(@server, self, obj)
 		end
 	end
 	
