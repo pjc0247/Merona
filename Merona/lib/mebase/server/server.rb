@@ -1,6 +1,6 @@
 require 'eventmachine'
 
-class ServerHandler < EM::Connection
+class Connection < EM::Connection
 	include EM::P::ObjectProtocol
 	
 	@@clients = Array.new
@@ -18,7 +18,7 @@ end
 
 class Server
 	def initialize(port)
-		EventMachine.start_server("127.0.0.1", port, ServerHandler)
+		EventMachine.start_server("127.0.0.1", port, Connection)
 		
 		@handler = Array.new
 	end
