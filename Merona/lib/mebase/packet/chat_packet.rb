@@ -1,7 +1,7 @@
 class ChatPacket < Packet
 	def initialize
 		super
-		@id = Protocol.CHAT
+		@id = Protocol::CHAT
 	end
 	
 	def msg=(msg)
