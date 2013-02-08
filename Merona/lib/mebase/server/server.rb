@@ -7,13 +7,12 @@ class Connection < EM::Connection
 	
 	attr_reader :ip, :port
 	
-	
 	def initialize(*args)
 		@port, @ip = Socket.unpack_sockaddr_in(get_peername)
-		connect
-		
 		@server = $server[args[0]]
 		@server.clients.push self
+		
+		connect
 	end
 	def unbind
 		@server.clients.delete self
