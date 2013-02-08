@@ -48,7 +48,7 @@ class Server
 		EventMachine.start_server("127.0.0.1", port, klass, name)
 		
 		@clients = Array.new
-		@handler = Array.new
+		@handler = {}
 		
 		@name = name
 		@port = port
@@ -60,7 +60,7 @@ class Server
 	end
 	
 	def add_handler(handler)
-		@handler.push(handler)
+		@handler[handler] = handler.new
 	end
 	def delete_handler(handler)
 		@handler.delete handler
