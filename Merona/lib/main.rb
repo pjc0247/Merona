@@ -11,5 +11,6 @@ begin
 	
 	polling do
 		# write code here
+		Server.new("test", 9916)
 	end
 end
