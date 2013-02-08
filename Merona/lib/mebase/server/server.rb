@@ -3,22 +3,29 @@ require 'eventmachine'
 class Connection < EM::Connection
 	include EM::P::ObjectProtocol
 	
+	attr_reader :ip, :port
+	
 	@@clients = Array.new
 	
 	def post_init
+		@port, @ip = Socket.unpack_sockaddr_in(get_peername)
+		connect
 		@@clients.push self
 	end
 	def unbind
 		@@clients.delete self
+		disconnect
 	end
 	def receive_object(obj)
 		p obj
 	end
 	
 	
-	def ip
-		port, ip = Socket.unpack_sockaddr_in(get_peername)
-		ip
+	def connect
+		Log.output("new connection from " + @ip)
+	end
+	def disconnect
+		Log.output("lost connection " + @ip)
 	end
 end
 
