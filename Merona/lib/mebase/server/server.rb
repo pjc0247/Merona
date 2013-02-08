@@ -1,5 +1,7 @@
 require 'eventmachine'
 
+$server = {}
+
 class Connection < EM::Connection
 	include EM::P::ObjectProtocol
 	
@@ -7,10 +9,12 @@ class Connection < EM::Connection
 	
 	@@clients = Array.new
 	
-	def post_init
+	def initialize(*args)
 		@port, @ip = Socket.unpack_sockaddr_in(get_peername)
 		connect
 		@@clients.push self
+		
+		@server = $server[args[0]]
 	end
 	def unbind
 		@@clients.delete self
@@ -34,11 +38,21 @@ class Connection < EM::Connection
 end
 
 class Server
-	def initialize(port)
-		EventMachine.start_server("127.0.0.1", port, Connection)
+	attr_reader :name
+	attr_reader :port
+	
+	def initialize(name,port,klass=Connection)
+		EventMachine.start_server("127.0.0.1", port, klass, name)
+		
 		@handler = Array.new
+		
+		@name = name
+		@port = port
+		
+		$server[@name] = self
 	end
 	def dispose
+		$server.delete @name
 	end
 	
 	def add_handler(handler)
