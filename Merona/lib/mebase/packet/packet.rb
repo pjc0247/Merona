@@ -18,6 +18,13 @@ class Packet
 		
 		@data[name] = data
 	end
+	def get(name)
+		if name == nil
+			return
+		end
+		
+		@data[name]
+	end
 
 	def type=(type)
 		@data["type"] = type
