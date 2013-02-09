@@ -25,6 +25,13 @@ class Packet
 		
 		@data[name]
 	end
+	
+	def []=(name,data)
+		push(name, data)
+	end
+	def [](name)
+		get(name)
+	end
 
 	def type=(type)
 		@data["type"] = type
