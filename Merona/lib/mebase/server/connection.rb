@@ -26,11 +26,6 @@ class Connection < EM::Connection
 		end
 	end
 	
-	
-	def self.clients
-		@@clients
-	end
-	
 	def connect
 		Log.output("new connection from " + @ip)
 	end
