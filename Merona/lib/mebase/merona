@@ -5,6 +5,8 @@ import 'mebase/debug/*'
 import 'mebase/data/*'
 import 'mebase/datastruct/*'
 
+import 'mebase/db/*'
+
 import 'mebase/protocol/*'
 
 import 'mebase/packet/packet.rb'
