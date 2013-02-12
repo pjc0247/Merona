@@ -1,3 +1,3 @@
 class Protocol
-	CHAT = 1301
+	CHAT = 1300
 end
