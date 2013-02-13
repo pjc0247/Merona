@@ -1,4 +1,4 @@
-class ChatHandler < Handler
+class UserHandler < Handler
 	def recv(server,connection,packet)
 		case packet.id
 			when Protocol::REGIST
