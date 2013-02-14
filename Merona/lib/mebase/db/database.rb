@@ -18,18 +18,18 @@ class Database
 	
 	def select(table, row, condition="", option="")
 		stm = prepare("select #{row} from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
-		return stm, execute(stm)
+		return stm, stm.execute
 	end
 	def update(table, update, condition="", option="")
 		stm = prepare("update #{table} set #{update} #{condition=="" ? "" : "where"} #{condition} #{option};")
-		return stm, execute(stm)
+		return stm, stm.execute
 	end
 	def insert(table, row, data, option="")
 		stm = prepare("insert into #{table} (#{value}) values (#{data}) #{option};")
-		return stm, execute(stm)
+		return stm, stm.execute
 	end
 	def delete(table, condition, option="")
 		stm = prepare("delete from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
-		return stm, execute(stm)
+		return stm, stm.execute
 	end
 end
