@@ -9,7 +9,7 @@ class SQLite < Database
 	end
 	
 	def connect(addr)
-		@db = SQLite3::Databases.new db
+		@db = SQLite3::Database.new addr
 	end
 	def disconnect
 		@db.close
@@ -19,9 +19,9 @@ class SQLite < Database
 		@db.prepare query
 	end
 	def execute(stm)
-		@stm.execute
+		stm.execute
 	end
 	def next(rs)
-		@rs.next
+		rs.next
 	end
 end
