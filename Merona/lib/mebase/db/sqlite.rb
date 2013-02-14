@@ -24,4 +24,6 @@ class SQLite < Database
 	def next(rs)
 		rs.next
 	end
+	def query(query)
+	end
 end
