@@ -13,11 +13,7 @@ class Database
 	
 	def prepare(query)
 	end
-	def execute(stm)
-	end
-	def next(rs)
-	end
-	def query(query)
+	def execute(query)
 	end
 	
 	def select(table, row, condition="", option="")
