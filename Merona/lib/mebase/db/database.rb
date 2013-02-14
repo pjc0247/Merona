@@ -21,15 +21,12 @@ class Database
 		return stm, stm.execute
 	end
 	def update(table, update, condition="", option="")
-		stm = prepare("update #{table} set #{update} #{condition=="" ? "" : "where"} #{condition} #{option};")
-		return stm, stm.execute
+		execute("update #{table} set #{update} #{condition=="" ? "" : "where"} #{condition} #{option};")
 	end
 	def insert(table, row, data, option="")
-		stm = prepare("insert into #{table} (#{row}) values (#{data}) #{option};")
-		return stm, stm.execute
+		execute("insert into #{table} (#{row}) values (#{data}) #{option};")
 	end
 	def delete(table, condition, option="")
-		stm = prepare("delete from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
-		return stm, stm.execute
+		execute("delete from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
 	end
 end
