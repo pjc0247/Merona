@@ -4,7 +4,7 @@ class Database
 	def dispose
 	end
 	
-	def connect
+	def connect(addr="localhost", port=9999, id="public", pw="")
 	end
 	def disconnect
 	end
