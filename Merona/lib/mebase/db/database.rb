@@ -17,12 +17,19 @@ class Database
 	end
 	
 	def select(table, row, condition, option="")
-		"select "+table+" from "+row" where "+condition+" "+option+";";
+		stm = prepare("select #{row} from #{table} where #{condition} #{option};")
+		return stm, execute(stm)
 	end
-	def update
+	def update(table, update, condition, option="")
+		stm = prepare("update #{table} set #{update} where #{condition} #{option};")
+		return stm, execute(stm)
 	end
-	def insert
+	def insert(table, row, data, option="")
+		stm = prepare("insert into #{table} (#{value}) values (#{data}) #{option};")
+		return stm, execute(stm)
 	end
-	def delete
+	def delete(table, condition, option="")
+		stm = prepare("delete from #{table} where #{condition} #{option};")
+		return stm, execute(stm)
 	end
 end
