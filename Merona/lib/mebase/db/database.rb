@@ -25,7 +25,7 @@ class Database
 		return stm, stm.execute
 	end
 	def insert(table, row, data, option="")
-		stm = prepare("insert into #{table} (#{value}) values (#{data}) #{option};")
+		stm = prepare("insert into #{table} (#{row}) values (#{data}) #{option};")
 		return stm, stm.execute
 	end
 	def delete(table, condition, option="")
