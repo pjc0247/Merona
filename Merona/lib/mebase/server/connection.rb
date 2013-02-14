@@ -10,10 +10,13 @@ class Connection < EM::Connection
 		@server = args[0]
 		@server.clients.push self
 		
+		@db = SQLite.new DB_ACCOUNT
+		
 		connect
 	end
 	def unbind
 		@server.clients.delete self
+		@db.dispose
 		disconnect
 	end
 	
