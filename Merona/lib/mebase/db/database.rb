@@ -9,6 +9,13 @@ class Database
 	def disconnect
 	end
 	
+	def prepare(query)
+	end
+	def execute(stm)
+	end
+	def next(rs)
+	end
+	
 	def select(table, row, condition, option="")
 		"select "+table+" from "+row" where "+condition+" "+option+";";
 	end
