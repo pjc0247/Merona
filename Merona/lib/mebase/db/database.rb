@@ -17,6 +17,8 @@ class Database
 	end
 	def next(rs)
 	end
+	def query(query)
+	end
 	
 	def select(table, row, condition="", option="")
 		stm = prepare("select #{row} from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
