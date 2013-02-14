@@ -1,5 +1,5 @@
 class Database
-	def initialize
+	def initialize(addr="localhost", port=9999, id="public", pw="")
 	end
 	def dispose
 	end
