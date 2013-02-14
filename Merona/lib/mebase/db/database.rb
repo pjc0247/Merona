@@ -1,7 +1,9 @@
 class Database
 	def initialize(addr="localhost", port=9999, id="public", pw="")
+		connect(addr, port , id, pw)
 	end
 	def dispose
+		disconnect
 	end
 	
 	def connect(addr="localhost", port=9999, id="public", pw="")
