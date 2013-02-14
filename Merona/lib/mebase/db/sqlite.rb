@@ -18,12 +18,7 @@ class SQLite < Database
 	def prepare(query)
 		@db.prepare query
 	end
-	def execute(stm)
-		stm.execute
-	end
-	def next(rs)
-		rs.next
-	end
-	def query(query)
+	def execute(query)
+		@db.execute query
 	end
 end
