@@ -18,7 +18,7 @@ class Database
 	
 	def select(table, row, condition="", option="")
 		stm = prepare("select #{row} from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
-		return stm, stm.execute
+		stm.execute
 	end
 	def update(table, update, condition="", option="")
 		execute("update #{table} set #{update} #{condition=="" ? "" : "where"} #{condition} #{option};")
