@@ -13,7 +13,7 @@ begin
 	polling do
 		# write code here
 		
-		test = Server.new("test", 9916)
-		test.add_handler ChatHandler
+		pubsub = Server.new("pubsub", 9911)
+		pubsub.add_handler PubsubHandler
 	end
 end
