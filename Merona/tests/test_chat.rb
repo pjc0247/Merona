@@ -16,7 +16,7 @@ end
 sock = TCPSocket.new addr, port
 
 packet = ChatPacket.new
-packet.id = 1301
+packet.id = Protocol::CHAT
 packet.sender = "Aqwer"
 packet.msg = "AEWF"
 
