@@ -1,6 +1,7 @@
 require 'win32/process'
 class ProcessPool
-	def initialize
+	def initialize(server)
+		@server = server
 		@worker = Array.new
 		
 		@queue = Queue.new
