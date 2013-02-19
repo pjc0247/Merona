@@ -5,26 +5,26 @@ class Channel
 	def dispose
 	end
 	
-	def subscribe(name)
-		if @channel[name] == nil
-			@channel[name] = Array.new
+	def subscribe(ch)
+		if @channel[ch] == nil
+			@channel[ch] = Array.new
 		end
 		
-		@channel[name].push name
+		@channel[ch].push name
 	end
-	def unsubscribe(name)
-		@channel[name].delete name
+	def unsubscribe(ch)
+		@channel[ch].delete name
 		
-		if @channel[name].size == 0
-			@channel[name] = nil
+		if @channel[ch].size == 0
+			@channel[ch] = nil
 		end
 	end
-	def publish(name, packet)
-		if @channel[name] == nil
-			@channel[name] = Array.new
+	def publish(ch, packet)
+		if @channel[ch] == nil
+			@channel[ch] = Array.new
 		end
 		
-		@channel[name].each do |client|
+		@channel[ch].each do |client|
 			client.send packet
 		end
 	end
