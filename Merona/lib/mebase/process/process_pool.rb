@@ -1,4 +1,15 @@
 require 'win32/process'
+
+class WorkItem
+	attr_accessor :packet
+	attr_accessor :sender
+	
+	def initialize(packet, sender)
+		@packet = packet
+		@sender = sender
+	end
+end
+
 class ProcessPool
 	def initialize(server)
 		@server = server
@@ -17,6 +28,7 @@ class ProcessPool
 					if not @queue.empty?
 						item = @queue.pop
 						
+						
 					end
 				end
 			end
@@ -30,8 +42,8 @@ class ProcessPool
 		end
 	end
 	
-	def enqueue(item)
-		@queue.push item
+	def enqueue(sender, item)
+		@queue.push WorkItem.new(sender, item)
 	end
 	
 end
