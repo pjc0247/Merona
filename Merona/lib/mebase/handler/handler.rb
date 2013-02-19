@@ -1,6 +1,4 @@
 class Handler
-	attr_accessor :connection
-	
 	def initialize
 	end
 	def dispose
