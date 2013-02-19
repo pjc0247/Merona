@@ -15,7 +15,7 @@ class Server
 		@clients = Array.new
 		@handler = Array.new
 		
-		add_handler PubsubHandler
+		@pubsub = PubsubHandler.new
 		
 		@name = name
 		@port = port
