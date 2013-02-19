@@ -24,9 +24,7 @@ class Connection < EM::Connection
 		send_object packet
 	end
 	def receive_object(obj)
-		@server.handler.each do |handler|
-			handler.recv(@server, self, obj)
-		end
+		@server.process.enqueue(self, obj)
 	end
 	
 	def connect
