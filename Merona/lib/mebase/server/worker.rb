@@ -1,6 +1,8 @@
 require 'eventmachine'
 
 class Worker
+	attr_reader :handler
+
 	def initialize
 		EventMachine.connect("127.0.0.1", 9911, Connection, self)
 
