@@ -9,13 +9,14 @@ class ProcessPool
 	def dispose
 	end
 	
-	def create_worker(n, port)
+	def create_worker(n)
 		n.times do
 			conn = 0
 			thread = Thread.new do
 				while true
 					if not @queue.empty?
 						item = @queue.pop
+						
 					end
 				end
 			end
