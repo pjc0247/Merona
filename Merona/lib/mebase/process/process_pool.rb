@@ -30,6 +30,7 @@ class ProcessPool
 							handler.recv(@server, item.sender, item.packet)
 						end
 					end
+					delay 1
 				end
 			end
 			
