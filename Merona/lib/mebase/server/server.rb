@@ -12,8 +12,7 @@ class Server
 	
 	def initialize(name,port,klass=Connection)
 		EventMachine.start_server("127.0.0.1", port, klass, self)
-		EventMachine.start_server("127.0.0.1", port+1, PoolConnection, self)
-		
+
 		@clients = Array.new
 		@handler = Array.new
 		
