@@ -5,6 +5,8 @@ import 'mebase/debug/*'
 import 'mebase/data/*'
 import 'mebase/datastruct/*'
 
+import 'mebase/channel/*'
+
 import 'mebase/db/*'
 
 import 'mebase/protocol/*'
