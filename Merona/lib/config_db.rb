@@ -1,1 +1,1 @@
-DB_ACCOUNT "database/account.db"
+DB_ACCOUNT = "database/account.db"
