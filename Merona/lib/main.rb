@@ -14,6 +14,5 @@ begin
 		# write code here
 		
 		pubsub = Server.new("pubsub", 9911)
-		pubsub.add_handler PubsubHandler
 	end
 end
