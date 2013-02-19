@@ -20,21 +20,17 @@ class ProcessPool
 	
 	def create_worker(n)
 		n.times do
-			conn = 0
 			thread = Thread.new do
 				while true
-					if not @queue.empty?
-						item = @queue.pop
-						
-						@server.handler.each do |handler|
-							handler.recv(@server, item.sender, item.packet)
-						end
+					item = @queue.deq(false)
+					
+					@server.handler.each do |handler|
+						handler.recv(@server, item.sender, item.packet)
 					end
-					delay 1
 				end
+				
+				@worker.push thread
 			end
-			
-			@worker.push conn
 		end
 	end
 	def kill
