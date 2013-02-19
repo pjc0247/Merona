@@ -1,0 +1,7 @@
+# 9000 ~ 9099
+class Protocol
+	SUBSCRIBE = 9000
+	UNSUBSCRIBE = 9001
+	
+	PUBLISH = 9010
+end
