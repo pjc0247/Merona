@@ -26,7 +26,9 @@ class ProcessPool
 					if not @queue.empty?
 						item = @queue.pop
 						
-						
+						@server.handler.each do |handler|
+							handler.recv(@server, item.sender, item.packet)
+						end
 					end
 				end
 			end
