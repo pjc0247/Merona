@@ -1,4 +1,4 @@
-﻿class Pubsub
+﻿class Channel
 	def initialize
 		@channel = {}
 	end
