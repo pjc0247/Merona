@@ -6,6 +6,7 @@ class Server
 	attr_reader :name
 	attr_reader :port
 	attr_reader :handler
+	attr_reader :pubsub
 	
 	attr_accessor :clients
 	
