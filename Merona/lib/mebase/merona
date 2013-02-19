@@ -16,5 +16,7 @@ import 'mebase/packet/*'
 
 import 'mebase/server/*'
 
+import 'mebase/process/*'
+
 import 'mebase/handler/handler.rb'
 import 'mebase/handler/*'
