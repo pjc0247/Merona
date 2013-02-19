@@ -10,9 +10,4 @@ class Handler
 		#		process code here
 		#end
 	end
-	
-	
-	def send(obj)
-		
-	end
 end
