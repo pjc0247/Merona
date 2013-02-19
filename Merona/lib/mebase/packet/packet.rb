@@ -2,11 +2,13 @@ class Packet
 	attr_accessor :id
 	attr_accessor :size
 	attr_accessor :data
+	attr_accessor :ch
 	
 	def initialize
 		@data = {}
 		
 		@id = -1
+		@ch = "*"
 	end
 	def dispose
 	end
@@ -33,6 +35,13 @@ class Packet
 		get(name)
 	end
 
+	def ch=(ch)
+		@ch = ch
+	end
+	def ch
+		@ch
+	end
+	
 	def type=(type)
 		@data["type"] = type
 	end
