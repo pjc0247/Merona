@@ -9,6 +9,8 @@ class WorkerConnection < Connection
 	attr_reader :state
 	
 	def initialize(*args)
+		@thread = args[0]
+		
 		@state = WorkerState::IDLE
 	end
 	def unbind
@@ -18,5 +20,8 @@ class WorkerConnection < Connection
 		@state = BUSY
 		super obj
 		@state = IDLE
-	end 
+	end
+	def kill
+		@thread.kill
+	end
 end
