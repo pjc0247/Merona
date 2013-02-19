@@ -1,5 +1,3 @@
-require 'win32/process'
-
 class WorkItem
 	attr_accessor :packet
 	attr_accessor :sender
