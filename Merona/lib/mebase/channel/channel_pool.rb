@@ -5,9 +5,6 @@ class ChannelPool
 	def dispose
 	end
 	
-	def create_channel
-	end
-	
 	def tokenize(name, &block)
 		token = name.split(".")
 		if token.size > 1
@@ -25,8 +22,7 @@ class ChannelPool
 		if @channel[name] == nil
 			@channel[name] = Array.new
 		end
-		
-		puts name
+
 		tokenize(name) do |t|
 			subscribe t, client
 		end
