@@ -1,30 +1,24 @@
 class Channel
 	def initialize
-		@channel = {}
+		@clients = Array.new
 	end
 	def dispose
 	end
-	
-	def subscribe(ch)
-		if @channel[ch] == nil
-			@channel[ch] = Array.new
-		end
-		
-		@channel[ch].push name
+
+	def subscribe(client)
+		@clients.push name
 	end
-	def unsubscribe(ch)
-		@channel[ch].delete name
+	def unsubscribe(client)
+		@clients.delete name
 		
-		if @channel[ch].size == 0
-			@channel[ch] = nil
+		if @clients.size == 0
+			return nil
+		else
+			return true
 		end
 	end
-	def publish(ch, packet)
-		if @channel[ch] == nil
-			@channel[ch] = Array.new
-		end
-		
-		@channel[ch].each do |client|
+	def publish(packet)
+		@clients.each do |client|
 			client.send packet
 		end
 	end
