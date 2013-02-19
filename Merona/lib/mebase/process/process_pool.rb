@@ -10,13 +10,16 @@ class ProcessPool
 	
 	def create_worker(n, port)
 		n.times do
+			conn = 0
 			thread = Thread.new do
-				polling do
-					EventMachine.connect("127.0.0.1", port, WorkerConnection, self)
+				while true
+					if not @queue.empty?
+						item = @queue.pop
+					end
 				end
 			end
 			
-			@worker.push thread
+			@worker.push conn
 		end
 	end
 	def kill
@@ -24,4 +27,9 @@ class ProcessPool
 			worker.kill
 		end
 	end
+	
+	def enqueue(item)
+		@queue.push item
+	end
+	
 end
