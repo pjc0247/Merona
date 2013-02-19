@@ -2,7 +2,7 @@ class WorkItem
 	attr_accessor :packet
 	attr_accessor :sender
 	
-	def initialize(packet, sender)
+	def initialize(sender, packet)
 		@packet = packet
 		@sender = sender
 	end
