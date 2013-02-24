@@ -1,5 +1,3 @@
-require 'eventmachine'
-
 $server = {}
 
 class Server
