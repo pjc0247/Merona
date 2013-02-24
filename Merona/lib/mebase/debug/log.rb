@@ -1,9 +1,4 @@
-﻿###################################################
-#             ChocoPie GameEngine                 #
-#                           Log                   #
-###################################################
-
-def defLogger(msg)
+﻿def defLogger(msg)
     puts "[LOG] : " + msg
 end
 
