@@ -11,6 +11,7 @@ class Connection < EM::Connection
 		@server.clients.push self
 		
 		@db = SQLite.new DB_ACCOUNT
+		@mem = Redis.new REDIS_HOST, REDIS_PORT
 		
 		connect
 		
@@ -19,6 +20,7 @@ class Connection < EM::Connection
 	def unbind
 		@server.clients.delete self
 		@db.dispose
+		@mem.dispose
 		disconnect
 	end
 	
