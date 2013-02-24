@@ -1,7 +1,7 @@
 # Merona main
 
 import 'mebase/merona'
-import 'config_db.rb'
+import 'config/*'
 
 begin
 	if meInitialize
