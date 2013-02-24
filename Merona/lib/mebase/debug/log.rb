@@ -1,5 +1,6 @@
 ﻿def defLogger(msg)
     puts msg
+	Log.logfile.puts msg
 end
 
 class Log
@@ -11,6 +12,9 @@ class Log
     def dispose
     end
 
+	def self.logfile
+		@@logfile
+	end
 	def self.logfile=(fp)
 		@@logfile = fp
 	end
