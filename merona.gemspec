@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = "2013-02-24"
   s.description = "Chocopie Game Server Engine by Ruby"
   s.email = ["pjc0247@naver.com"]
-  s.homepage = "http://anz.smilent.net"
+  s.homepage = "http://github.com/pjc0247/Merona"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "merona"
