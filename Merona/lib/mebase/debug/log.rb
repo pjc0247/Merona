@@ -10,7 +10,10 @@ class Log
     def dispose
     end
 
-    def self.logfunc(lf)
+	def self.logfunc
+		@@logfunc
+	end
+    def self.logfunc=(lf)
         @@logfunc = lf
     end
 
