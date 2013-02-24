@@ -15,7 +15,7 @@ class Connection < EM::Connection
 		
 		connect
 		
-		set_sock_opt(Socket::IPPROTO_TCP, Socket::TCP_NODELAY, 1)
+		set_sock_opt(Socket::IPPROTO_TCP, Socket::TCP_NODELAY, CONNECTION_NODELAY)
 	end
 	def unbind
 		@server.clients.delete self
