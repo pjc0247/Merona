@@ -17,9 +17,9 @@ class SharedMemory
 	end
 	
 	def [](name)
-		get name
+		get @prefix+name
 	end
 	def []=(name,value)
-		set name, value
+		set @prefix+name, value
 	end
 end
