@@ -11,7 +11,7 @@ class Server
 	attr_accessor :clients
 	
 	def initialize(name,port,klass=Connection)
-		EventMachine.start_server("127.0.0.1", port, klass, self)
+		EventMachine.start_server("localhost", port, klass, self)
 
 		@clients = Array.new
 		@handler = Array.new
