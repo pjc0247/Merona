@@ -1,4 +1,4 @@
-SHAREDMEM = Redis
+SHAREDMEM = RedisMemory
 
 SHAREDMEM_HOST = "localhost"
 SHAREDMEM_PORT = 6379
