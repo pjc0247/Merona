@@ -7,14 +7,14 @@ begin
 	if meInitialize
 		Log.output "Merona engine started"
 	else
-		Log.output "Cannot initialize Merona!!"
+		Log.error "Cannot initialize Merona!!"
 	end
 	
 	polling do
 		# write code here
 		
 		$oid = 0
-
+	
 		test = Server.new("test", 9916)
 		test.add_handler ChatHandler
 		test.add_handler PubsubHandler
