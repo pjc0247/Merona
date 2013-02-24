@@ -1,0 +1,33 @@
+# Merona executable
+
+require 'rubygems'
+require 'FileUtils'
+
+if ARGV.size < 2
+	puts "Usage"
+	puts "  merona -command --parameter"
+else
+	cmd = ARGV[0].downcase
+
+	case cmd
+		when "new"
+			path = Gem.bin_path("merona", "merona")
+			path.reverse!
+			path = path.split("/", 3)[2]
+			path.reverse!
+			path += "/frame"
+			
+			FileUtils.cp_r path, ARGV[1]
+			FileUtils.mkdir path + "/log"
+			FileUtils.mkdir path + "/handler"
+			
+			puts ARGV[1] + " project craeted"
+		when "delete"
+			FileUtils.rm_r ARGV[1]
+			
+			puts ARGV[1] + " project deleted"
+		when "run"
+			Kernel.exec "ruby " + ARGV[1] + "/merona.rb"
+	end
+end
+
