@@ -1,8 +1,8 @@
 require 'socket'
 
-load '../lib/mebase/protocol/chat_protocol.rb'
-load '../lib/mebase/packet/packet.rb'
-load '../lib/mebase/packet/chat_packet.rb'
+load '../lib/protocol/chat_protocol.rb'
+load '../lib/packet/packet.rb'
+load '../lib/packet/chat_packet.rb'
 
 load 'test_util.rb'
 

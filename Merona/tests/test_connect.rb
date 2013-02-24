@@ -1,8 +1,8 @@
 require 'eventmachine'
 
-load '../lib/mebase/packet/packet.rb'
-load '../lib/mebase/protocol/pubsub_protocol.rb'
-load '../lib/mebase/protocol/sync_protocol.rb'
+load '../lib/packet/packet.rb'
+load '../lib/protocol/pubsub_protocol.rb'
+load '../lib/protocol/sync_protocol.rb'
 
 load 'test_util.rb'
 

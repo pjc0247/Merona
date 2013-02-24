@@ -1,5 +1,5 @@
-load '../lib/mebase/db/database.rb'
-load '../lib/mebase/db/sqlite.rb'
+load '../lib/db/database.rb'
+load '../lib/db/sqlite.rb'
 
 load 'test_util.rb'
 
