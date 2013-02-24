@@ -23,8 +23,11 @@ class Database
 	def update(table, update, condition="", option="")
 		execute("update #{table} set #{update} #{condition=="" ? "" : "where"} #{condition} #{option};")
 	end
-	def insert(table, row, data, option="")
-		execute("insert into #{table} (#{row}) values (#{data}) #{option};")
+	def insert(table, row, *args)
+		data = ""
+		args.each { |v| data += v.to_s + "," }
+		data = data[0..data.length-2]
+		execute("insert into #{table} (#{row}) values (#{data});")
 	end
 	def delete(table, condition, option="")
 		execute("delete from #{table} #{condition=="" ? "" : "where"} #{condition} #{option};")
