@@ -1,6 +1,6 @@
 # Merona main
 
-import 'mebase/merona'
+import 'merona'
 import 'config/*'
 
 begin

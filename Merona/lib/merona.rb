@@ -1,12 +1,26 @@
-# Merona entry
+# Merona
 
-def import(path)
-	if path[path.length-1] == '*'
-		Dir[path[0..path.length-1] + "*.rb"].each {|file| load file }
-	else
-		load path
-	end
-end
+import 'core/*'
+import 'debug/*'
+import 'data/*'
+import 'datastruct/*'
 
-import 'main.rb'
+import 'channel/*'
 
+import 'db/database.rb'
+import 'db/*'
+
+import 'sharedmem/shared_memory.rb'
+import 'sharedmem/*'
+
+import 'protocol/*'
+
+import 'packet/packet.rb'
+import 'packet/*'
+
+import 'server/*'
+
+import 'process/*'
+
+import 'handler/handler.rb'
+import 'handler/*'

@@ -3,6 +3,7 @@ require 'eventmachine'
 class Connection < EM::Connection
 	include EM::P::ObjectProtocol
 	
+	attr_accessor :id
 	attr_reader :ip, :port
 	
 	def initialize(*args)
