@@ -11,7 +11,7 @@ class Connection < EM::Connection
 		@server.clients.push self
 		
 		@db = SQLite.new DB_ACCOUNT
-		@mem = Redis.new REDIS_HOST, REDIS_PORT
+		@mem = Redis.new SHAREDMEM_HOST, SHAREDMEM_PORT
 		
 		connect
 		
@@ -21,6 +21,7 @@ class Connection < EM::Connection
 		@server.clients.delete self
 		@db.dispose
 		@mem.dispose
+		
 		disconnect
 	end
 	
