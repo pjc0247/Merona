@@ -10,8 +10,8 @@ class Connection < EM::Connection
 		@server = args[0]
 		@server.clients.push self
 		
-		@db = SQLite.new DB_ACCOUNT
-		@mem = Redis.new SHAREDMEM_HOST, SHAREDMEM_PORT
+		@db = DB.new DB_ACCOUNT
+		@mem = SHAREDMEM.new SHAREDMEM_HOST, SHAREDMEM_PORT
 		
 		connect
 		
