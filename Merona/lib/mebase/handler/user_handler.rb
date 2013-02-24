@@ -14,6 +14,7 @@ class UserHandler < Handler
 				else
 					reply["result"] = true
 					connection.id = packet["id"]
+					connection.mem.push_prefix packet["id"]
 				end
 				
 				rs.close
