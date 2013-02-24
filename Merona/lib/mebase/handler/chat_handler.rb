@@ -2,9 +2,14 @@ class ChatHandler < Handler
 	def recv(server,connection,packet)
 		case packet.id
 			when Protocol::CHAT
-				#pkt.sender = getClientNickname
 				puts "[#{packet["sender"]}] : #{packet["msg"]}"
-				server.broadcast packet
+				
+				reply = Packet.new
+				reply.id = Protocol::CHAT
+				reply["sender"] = packet["sender"]
+				reply["msg"] = packet["msg"]
+				
+				server.pubsub.publish(packet.ch, reply)
 		end
 	end
 end

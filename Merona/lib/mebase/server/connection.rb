@@ -13,6 +13,8 @@ class Connection < EM::Connection
 		@db = SQLite.new DB_ACCOUNT
 		
 		connect
+		
+		set_sock_opt(Socket::IPPROTO_TCP, Socket::TCP_NODELAY, 1)
 	end
 	def unbind
 		@server.clients.delete self
@@ -24,6 +26,7 @@ class Connection < EM::Connection
 		send_object packet
 	end
 	def receive_object(obj)
+		p obj
 		@server.process.enqueue(self, obj)
 	end
 	

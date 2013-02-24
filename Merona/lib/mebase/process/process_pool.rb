@@ -23,7 +23,7 @@ class ProcessPool
 			thread = Thread.new do
 				while true
 					item = @queue.deq(false)
-					
+
 					@server.handler.each do |handler|
 						handler.recv(@server, item.sender, item.packet)
 					end

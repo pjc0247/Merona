@@ -16,7 +16,7 @@ class Server
 		@clients = Array.new
 		@handler = Array.new
 		
-		@pubsub = PubsubHandler.new
+		@pubsub = ChannelPool.new
 		@process = ProcessPool.new(self)
 		@process.create_worker 5
 		
