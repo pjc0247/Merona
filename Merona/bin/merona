@@ -18,8 +18,6 @@ else
 			path += "/frame"
 			
 			FileUtils.cp_r path, ARGV[1]
-			FileUtils.mkdir path + "/log"
-			FileUtils.mkdir path + "/handler"
 			
 			puts ARGV[1] + " project craeted"
 		when "delete"
