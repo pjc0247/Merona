@@ -36,10 +36,8 @@ class ChannelPool
 		
 		return if @channel[name] == nil
 		
-		@channel[name].unsubscribe client
-		
-		if @channel[name].size == 0
-			@channel[name] = nil
+		if not @channel[name].unsubscribe(client)
+			@channel[name].delete name
 		end
 	end
 	def publish(name, packet)
