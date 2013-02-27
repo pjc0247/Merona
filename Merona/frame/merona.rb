@@ -13,7 +13,6 @@ $merona_path += "/lib"
 $LOAD_PATH << $merona_path
 $LOAD_PATH << "."
 
-
 def import(_path)
 	if _path[_path.length-1] == '*'
 		path = $merona_path + "/" + _path
