@@ -51,9 +51,11 @@ class ChannelPool
 	end
 	
 	# 지정된 이름의 채널에 패킷을 전송한다.
-	def publish(name, packet)
-		tokenize(name) do |t|
-			publish t, packet
+	def publish(name, packet, to_super = false)
+		if to_super == true
+			tokenize(name) do |t|
+				publish t, packet
+			end
 		end
 		
 		return if @channel[name] == nil
