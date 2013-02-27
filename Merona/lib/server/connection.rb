@@ -39,7 +39,6 @@ class Connection < EM::Connection
 	#
 	# obj : 수신된 패킷
 	def receive_object(obj)
-		p obj
 		@server.process.enqueue(self, obj)
 	end
 	
