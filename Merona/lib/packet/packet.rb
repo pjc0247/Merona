@@ -41,11 +41,4 @@ class Packet
 	def ch
 		@ch
 	end
-	
-	def type=(type)
-		@data["type"] = type
-	end
-	def type
-		@data["type"]
-	end
 end
