@@ -4,11 +4,11 @@ class Packet
 	attr_accessor :data
 	attr_accessor :ch
 	
-	def initialize
+	def initialize(id = 0, ch = "*")
 		@data = {}
 		
-		@id = -1
-		@ch = "*"
+		@id = id
+		@ch = ch
 	end
 	def dispose
 	end
