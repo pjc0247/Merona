@@ -24,10 +24,10 @@ class ChannelPool
 		end
 		
 		if @channel[name] == nil
-			@channel[name] = Array.new
+			@channel[name] = Channel.new
 		end
 		
-		@channel[name].push client
+		@channel[name].subscribe client
 	end
 	def unsubscribe(name, client)
 		tokenize(name) do |t|
@@ -36,7 +36,7 @@ class ChannelPool
 		
 		return if @channel[name] == nil
 		
-		@channel[name].delete client
+		@channel[name].unsubscribe client
 		
 		if @channel[name].size == 0
 			@channel[name] = nil
@@ -50,7 +50,7 @@ class ChannelPool
 		return if @channel[name] == nil
 		
 		@channel[name].each do |client|
-			client.send packet
+			client.publish packet
 		end
 	end
 end
