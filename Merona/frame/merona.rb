@@ -1,6 +1,7 @@
 # Merona entry
 
 require 'rubygems'
+require 'fileutils'
 
 FileUtils.cd(File.dirname(File.expand_path(__FILE__)), :verbose => true)
 
@@ -9,7 +10,7 @@ $merona_path.reverse!
 $merona_path = $merona_path.split("/", 3)[2]
 $merona_path.reverse!
 $merona_path += "/lib"
-
+	
 $LOAD_PATH << $merona_path
 $LOAD_PATH << "."
 
