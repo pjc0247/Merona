@@ -6,10 +6,10 @@ class Channel
 	end
 
 	def subscribe(client)
-		@clients.push name
+		@clients.push client
 	end
 	def unsubscribe(client)
-		@clients.delete name
+		@clients.delete client
 		
 		if @clients.size == 0
 			return nil
