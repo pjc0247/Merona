@@ -22,6 +22,7 @@ begin
 		test.add_handler ChatHandler
 		test.add_handler PubsubHandler
 		test.add_handler SyncHandler
+		test.add_handler PingHandler
 	end
 	
 rescue
