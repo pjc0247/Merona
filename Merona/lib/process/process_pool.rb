@@ -28,9 +28,9 @@ class ProcessPool
 						handler.recv(@server, item.sender, item.packet)
 					end
 				end
-				
-				@worker.push thread
 			end
+			
+			@worker.push thread
 		end
 	end
 	def kill
