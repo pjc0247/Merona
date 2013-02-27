@@ -1,6 +1,8 @@
 # Merona main
 
 import 'merona'
+import 'handler/*'
+import 'protocol/*'
 import 'config/*'
 
 begin
