@@ -26,5 +26,5 @@ begin
 	end
 	
 rescue
-	Log.error "[Error] : #{$!}"
+	Log.error "#{$!}"
 end
