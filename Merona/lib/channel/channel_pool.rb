@@ -62,6 +62,6 @@ class ChannelPool
 		
 		return if @channel[name] == nil
 		
-		@channel.publish packet
+		@channel[name].publish packet
 	end
 end
