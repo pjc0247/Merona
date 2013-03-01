@@ -62,8 +62,6 @@ class ChannelPool
 		
 		return if @channel[name] == nil
 		
-		@channel[name].each do |client|
-			client.publish packet
-		end
+		@channel.publish packet
 	end
 end
