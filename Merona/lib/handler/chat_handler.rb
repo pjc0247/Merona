@@ -2,7 +2,7 @@ class ChatHandler < Handler
 	def recv(server,connection,packet)
 		case packet.id
 			when Protocol::CHAT
-				puts "[#{packet["sender"]}] : #{packet["msg"]}"
+				#puts "[#{packet["sender"]}] : #{packet["msg"]}"
 				
 				reply = Packet.new
 				reply.id = Protocol::CHAT
