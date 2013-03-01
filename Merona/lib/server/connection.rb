@@ -28,13 +28,6 @@ class Connection < EM::Connection
 		disconnect
 	end
 	
-	# 현재 클라이언트에 패킷을 전송한다
-	#
-	# packet : 보낼 패킷
-	def send(packet)
-		send_object packet
-	end
-	
 	# 현재 클라이언트가 패킷을 받았을 때 불려지는 메소드
 	#
 	# obj : 수신된 패킷
