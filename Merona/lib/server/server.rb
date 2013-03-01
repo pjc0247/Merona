@@ -14,7 +14,7 @@ class Server
 	# port : 서버의 포트
 	# klass : Connection 핸들러 클래스
 	def initialize(name,port,klass=Connection)
-		EventMachine.start_server("localhost", port, klass, self)
+		EventMachine.start_server("0.0.0.0", port, klass, self)
 
 		@clients = Array.new
 		@handler = Array.new
