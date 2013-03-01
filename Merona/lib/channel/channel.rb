@@ -18,8 +18,9 @@ class Channel
 		end
 	end
 	def publish(packet)
+		freezed = packet.freeze
 		@clients.each do |client|
-			client.send packet
+			client.send_data freezed
 		end
 	end
 end
