@@ -13,6 +13,11 @@ class Packet
 	def dispose
 	end
 	
+	def freeze
+		data = Marshal.dump(self)
+        [data.respond_to?(:bytesize) ? data.bytesize : data.size, data].pack('Na*')
+	end
+	
 	# 패킷에 데이터를 넣는다
 	def push(name,data)
 		if name == nil
