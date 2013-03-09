@@ -2,8 +2,11 @@
 
 import 'merona'
 
+import 'dbms/*'
+import 'sharedmem/*'
 import 'handler/*'
 import 'protocol/*'
+
 import 'config/*'
 
 begin
