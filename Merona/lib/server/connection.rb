@@ -18,6 +18,8 @@ class Connection < EM::Connection
 		connect
 		
 		set_sock_opt(Socket::IPPROTO_TCP, Socket::TCP_NODELAY, CONNECTION_NODELAY)
+		
+		@connected = true
 	end
 	# 연결을 정리할 때 불려지는 메소드
 	def unbind
@@ -26,6 +28,8 @@ class Connection < EM::Connection
 		@mem.dispose
 		
 		disconnect
+		
+		@connected = false
 	end
 	
 	# 현재 클라이언트가 패킷을 받았을 때 불려지는 메소드
@@ -43,5 +47,10 @@ class Connection < EM::Connection
 	# 연결이 종료될 때 불려지는 메소드
 	def disconnect
 		Log.output("lost connection " + @ip)
+	end
+	
+	# 현재 클라이언트의 연결 상태를 조사한다.
+	def is_alive?
+		@connected
 	end
 end
