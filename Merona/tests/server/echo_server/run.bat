@@ -1,0 +1,1 @@
+ruby merona.rb
