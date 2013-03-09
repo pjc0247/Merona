@@ -26,7 +26,11 @@ class ProcessPool
 			thread = Thread.new do
 				while true
 					item = @queue.deq(false)
-
+					
+					if item.sender.is_alive? == false
+						next
+					end
+					
 					@server.handler.each do |handler|
 						handler.recv(@server, item.sender, item.packet)
 					end
