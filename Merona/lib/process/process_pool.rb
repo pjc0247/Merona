@@ -54,4 +54,9 @@ class ProcessPool
 	def enqueue(sender, item)
 		@queue.push WorkItem.new(sender, item)
 	end
+
+	# 큐의 사이즈를 얻어온다
+	def size
+		@queue.size
+	end
 end
