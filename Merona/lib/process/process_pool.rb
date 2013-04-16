@@ -28,9 +28,7 @@ class ProcessPool
 					item = @queue.deq(false)
 					
 					# 보낸이가 죽어있으면 패킷 무시
-					if item.sender.is_alive? == false
-						next
-					end
+					next if item.sender.is_alive? == false
 					
 					@server.handler.each do |handler|
 						handler.recv(@server, item.sender, item.packet)
