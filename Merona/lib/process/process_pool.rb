@@ -27,6 +27,7 @@ class ProcessPool
 				while true
 					item = @queue.deq(false)
 					
+					# 보낸이가 죽어있으면 패킷 무시
 					if item.sender.is_alive? == false
 						next
 					end
@@ -55,5 +56,4 @@ class ProcessPool
 	def enqueue(sender, item)
 		@queue.push WorkItem.new(sender, item)
 	end
-	
 end
